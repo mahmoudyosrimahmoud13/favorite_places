@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+<<<<<<< HEAD
   flutter_map: ^6.1.0
   flutter_riverpod: ^2.5.1
   geocoding: ^3.0.0
@@ -17,6 +18,9 @@ dependencies:
   latlong2: ^0.9.0
   location: ^5.0.3
   uuid: ^4.3.3
+=======
+  google_fonts: ^6.2.1
+>>>>>>> f7a7267d969019fedb727a6729c0a10eec10dbf1
 
 dev_dependencies:
   flutter_test:

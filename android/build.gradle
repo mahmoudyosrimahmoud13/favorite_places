@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 buildscript {
     ext.kotlin_version = '1.6.10' // Replace with the latest version of Kotlin Gradle plugin
 
@@ -12,6 +13,8 @@ buildscript {
     }
 }
 
+=======
+>>>>>>> f7a7267d969019fedb727a6729c0a10eec10dbf1
 allprojects {
     repositories {
         google()
@@ -23,7 +26,10 @@ rootProject.buildDir = '../build'
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> f7a7267d969019fedb727a6729c0a10eec10dbf1
 subprojects {
     project.evaluationDependsOn(':app')
 }

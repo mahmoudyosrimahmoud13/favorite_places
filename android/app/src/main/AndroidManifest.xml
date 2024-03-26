@@ -1,6 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
+<<<<<<< HEAD
         android:label="Favorite places"
+=======
+        android:label="favorite_places"
+>>>>>>> f7a7267d969019fedb727a6729c0a10eec10dbf1
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
