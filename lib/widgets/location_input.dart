@@ -1,4 +1,5 @@
 import 'package:favorite_places/models/place.dart';
+import 'package:favorite_places/screens/map.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:geocoding/geocoding.dart' as gc;
@@ -17,8 +18,8 @@ class _LocationInputState extends State<LocationInput> {
   List<gc.Placemark> geoCoderList = [];
   final map = MapController();
   PlaceLocation? _pickedLocation;
-  double longitude = 5;
-  double latitude = 5;
+  double? longitude;
+  double? latitude;
   bool _isGettingLocation = false;
 
   void _getLocation() async {
@@ -48,9 +49,9 @@ class _LocationInputState extends State<LocationInput> {
     setState(() {
       longitude = locationData.longitude!;
       latitude = locationData.latitude!;
-      map.move(LatLng(latitude, longitude), 20);
+      map.move(LatLng(latitude!, longitude!), 20);
     });
-    getGeoCode(latitude, longitude);
+    getGeoCode(latitude!, longitude!);
   }
 
   void getGeoCode(double latitude, double longitude) async {
@@ -69,8 +70,8 @@ class _LocationInputState extends State<LocationInput> {
     setState(() {
       longitude = map.camera.center.longitude;
       latitude = map.camera.center.latitude;
-      map.move(LatLng(latitude, longitude), 18);
-      getGeoCode(latitude, longitude);
+      map.move(LatLng(latitude!, longitude!), 18);
+      getGeoCode(latitude!, longitude!);
     });
   }
 
@@ -87,38 +88,32 @@ class _LocationInputState extends State<LocationInput> {
           urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
           userAgentPackageName: 'com.example.app',
         ),
-        MarkerLayer(
-          markers: [
-            Marker(
-              point: LatLng(latitude, longitude),
-              width: 80,
-              height: 80,
-              child: Icon(
-                Icons.location_on_rounded,
-                color: Colors.red,
-              ),
-            ),
-          ],
-        ),
-        CircleLayer(
-          circles: [
-            CircleMarker(
-                point: LatLng(latitude, longitude),
-                radius: 50,
-                useRadiusInMeter: true,
-                color: const Color.fromARGB(50, 0, 0, 255)),
-          ],
-        ),
-        MarkerLayer(markers: [
-          Marker(
-              point: LatLng(latitude, longitude),
-              child: const Center(
-                  child: Icon(
-                size: 30,
-                Icons.lens_outlined,
-                color: Colors.blue,
-              )))
-        ])
+        latitude != null
+            ? MarkerLayer(
+                markers: [
+                  Marker(
+                    point: LatLng(latitude!, longitude!),
+                    width: 80,
+                    height: 80,
+                    child: Icon(
+                      Icons.location_on_rounded,
+                      color: Colors.red,
+                    ),
+                  ),
+                ],
+              )
+            : const SizedBox.shrink(),
+        latitude != null
+            ? CircleLayer(
+                circles: [
+                  CircleMarker(
+                      point: LatLng(latitude!, longitude!),
+                      radius: 50,
+                      useRadiusInMeter: true,
+                      color: const Color.fromARGB(50, 0, 0, 255)),
+                ],
+              )
+            : const SizedBox.shrink(),
       ],
     );
     if (_isGettingLocation) {
@@ -148,7 +143,18 @@ class _LocationInputState extends State<LocationInput> {
                 icon: const Icon(Icons.location_on_rounded),
                 label: const Text('Get current location.')),
             TextButton.icon(
-                onPressed: selectLocation,
+                onPressed: () async {
+                  final selectedLocation =
+                      await Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => MapScreen(),
+                  ));
+                  print(selectedLocation.longitude);
+                  setState(() {
+                    longitude = selectedLocation.longitude;
+                    latitude = selectedLocation.latitude;
+                    map.move(selectedLocation, 15);
+                  });
+                },
                 icon: const Icon(Icons.map_rounded),
                 label: const Text('Select on map.'))
           ],

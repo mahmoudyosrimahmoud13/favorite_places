@@ -44,7 +44,7 @@ class PlaceDetailScreen extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      print(
+                      debugPrint(
                           'http://static-maps.yandex.ru/1.x/?lang=ar-US&ll=${place.placeLocation.longitude},${place.placeLocation.latitude}&\size=450,450&z=17&l=map&pt=${place.placeLocation.longitude},${place.placeLocation.latitude},pm2rdl1~32.870152,39.869847,pm2rdl99');
                     },
                     child: CircleAvatar(
