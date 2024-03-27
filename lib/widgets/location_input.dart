@@ -6,7 +6,8 @@ import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 
 class LocationInput extends StatefulWidget {
-  const LocationInput({super.key});
+  const LocationInput({super.key, required this.onPickedLocation});
+  final void Function(PlaceLocation location) onPickedLocation;
 
   @override
   State<LocationInput> createState() => _LocationInputState();
@@ -45,7 +46,6 @@ class _LocationInputState extends State<LocationInput> {
 
     locationData = await location.getLocation();
     setState(() {
-      _isGettingLocation = true;
       longitude = locationData.longitude!;
       latitude = locationData.latitude!;
       map.move(LatLng(latitude, longitude), 20);
@@ -76,17 +76,10 @@ class _LocationInputState extends State<LocationInput> {
 
   @override
   Widget build(BuildContext context) {
-    Widget previewContent = Text(
-      'No location chosen.',
-      style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
-    );
-    // if (_isGettingLocation) {
-    //   previewContent = const CircularProgressIndicator();
-    // }
-    previewContent = FlutterMap(
+    Widget previewContent = FlutterMap(
       options: const MapOptions(
         initialCenter: LatLng(29.8700168, 31.1663384),
-        initialZoom: 9.2,
+        initialZoom: 8.2,
       ),
       mapController: map,
       children: [
@@ -116,14 +109,24 @@ class _LocationInputState extends State<LocationInput> {
                 color: const Color.fromARGB(50, 0, 0, 255)),
           ],
         ),
-        const Center(
-            child: Icon(
-          size: 30,
-          Icons.lens_outlined,
-          color: Colors.blue,
-        ))
+        MarkerLayer(markers: [
+          Marker(
+              point: LatLng(latitude, longitude),
+              child: const Center(
+                  child: Icon(
+                size: 30,
+                Icons.lens_outlined,
+                color: Colors.blue,
+              )))
+        ])
       ],
     );
+    if (_isGettingLocation) {
+      previewContent = const CircularProgressIndicator();
+    }
+    if (_pickedLocation != null) {
+      widget.onPickedLocation(_pickedLocation!);
+    }
 
     return Column(
       children: [

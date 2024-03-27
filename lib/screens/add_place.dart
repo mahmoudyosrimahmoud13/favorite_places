@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:favorite_places/models/place.dart';
+
 import 'package:favorite_places/providers/user_places.dart';
 import 'package:favorite_places/widgets/image_input.dart';
 import 'package:favorite_places/widgets/location_input.dart';
@@ -15,24 +17,27 @@ class AddPlaceScreen extends ConsumerStatefulWidget {
 
 class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
   File? _selectedImage;
+  PlaceLocation? _selectedLocation;
   final _titleController = TextEditingController();
 
   final ifAddedSnackBar = const SnackBar(content: Text('Added succesfully.'));
   final ifEmptySnackBar = const SnackBar(
-    content: Text('Cannot add empty title.'),
+    content: Text('Cannot add empty field.'),
   );
 
   void addPlace() {
     final enteredTitle = _titleController.text;
 
-    if (enteredTitle.isEmpty || _selectedImage == null) {
+    if (enteredTitle.isEmpty ||
+        _selectedImage == null ||
+        _selectedLocation == null) {
       ScaffoldMessenger.of(context).showSnackBar(ifEmptySnackBar);
 
       return;
     }
     ref
         .read(userPlacesProvider.notifier)
-        .addPlace(enteredTitle, _selectedImage!);
+        .addPlace(enteredTitle, _selectedImage!, _selectedLocation!);
     ScaffoldMessenger.of(context).showSnackBar(ifAddedSnackBar);
 
     Navigator.of(context).pop();
@@ -75,7 +80,11 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
             const SizedBox(
               height: 10,
             ),
-            LocationInput(),
+            LocationInput(
+              onPickedLocation: (location) {
+                _selectedLocation = location;
+              },
+            ),
             const SizedBox(
               height: 16,
             ),

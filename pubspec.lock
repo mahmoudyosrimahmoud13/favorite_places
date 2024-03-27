@@ -41,7 +41,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.18.0"
-<<<<<<< HEAD
   cross_file:
     dependency: transitive
     description:
@@ -50,8 +49,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.3.4+1"
-=======
->>>>>>> f7a7267d969019fedb727a6729c0a10eec10dbf1
   crypto:
     dependency: transitive
     description:
@@ -76,7 +73,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.2"
-<<<<<<< HEAD
   file_selector_linux:
     dependency: transitive
     description:
@@ -117,8 +113,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
-=======
->>>>>>> f7a7267d969019fedb727a6729c0a10eec10dbf1
   flutter:
     dependency: "direct main"
     description: flutter
@@ -132,7 +126,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
-<<<<<<< HEAD
   flutter_map:
     dependency: "direct main"
     description:
@@ -157,14 +150,11 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.5.1"
-=======
->>>>>>> f7a7267d969019fedb727a6729c0a10eec10dbf1
   flutter_test:
     dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
-<<<<<<< HEAD
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -202,8 +192,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.0"
-=======
->>>>>>> f7a7267d969019fedb727a6729c0a10eec10dbf1
   google_fonts:
     dependency: "direct main"
     description:
@@ -228,7 +216,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
-<<<<<<< HEAD
   image_picker:
     dependency: "direct main"
     description:
@@ -317,8 +304,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.9.0"
-=======
->>>>>>> f7a7267d969019fedb727a6729c0a10eec10dbf1
   leak_tracker:
     dependency: transitive
     description:
@@ -351,7 +336,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.0"
-<<<<<<< HEAD
   lists:
     dependency: transitive
     description:
@@ -392,8 +376,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.0"
-=======
->>>>>>> f7a7267d969019fedb727a6729c0a10eec10dbf1
   matcher:
     dependency: transitive
     description:
@@ -418,7 +400,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.11.0"
-<<<<<<< HEAD
   mgrs_dart:
     dependency: transitive
     description:
@@ -435,8 +416,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
-=======
->>>>>>> f7a7267d969019fedb727a6729c0a10eec10dbf1
   path:
     dependency: transitive
     description:
@@ -509,7 +488,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
-<<<<<<< HEAD
   polylabel:
     dependency: transitive
     description:
@@ -534,8 +512,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.5.1"
-=======
->>>>>>> f7a7267d969019fedb727a6729c0a10eec10dbf1
   sky_engine:
     dependency: transitive
     description: flutter
@@ -549,7 +525,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.10.0"
-<<<<<<< HEAD
   sprintf:
     dependency: transitive
     description:
@@ -558,8 +533,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.0"
-=======
->>>>>>> f7a7267d969019fedb727a6729c0a10eec10dbf1
   stack_trace:
     dependency: transitive
     description:
@@ -568,7 +541,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.11.1"
-<<<<<<< HEAD
   state_notifier:
     dependency: transitive
     description:
@@ -577,8 +549,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
-=======
->>>>>>> f7a7267d969019fedb727a6729c0a10eec10dbf1
   stream_channel:
     dependency: transitive
     description:
@@ -619,7 +589,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.2"
-<<<<<<< HEAD
   unicode:
     dependency: transitive
     description:
@@ -636,8 +605,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.3.3"
-=======
->>>>>>> f7a7267d969019fedb727a6729c0a10eec10dbf1
   vector_math:
     dependency: transitive
     description:
@@ -670,7 +637,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.3.0"
-<<<<<<< HEAD
   wkt_parser:
     dependency: transitive
     description:
@@ -679,8 +645,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
-=======
->>>>>>> f7a7267d969019fedb727a6729c0a10eec10dbf1
   xdg_directories:
     dependency: transitive
     description:
