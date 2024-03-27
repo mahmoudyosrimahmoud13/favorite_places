@@ -14,8 +14,12 @@ class PlaceLocation {
 }
 
 class Place {
-  Place({required this.placeLocation, required this.title, required this.image})
-      : id = uuid.v4();
+  Place(
+      {required this.placeLocation,
+      required this.title,
+      required this.image,
+      id})
+      : id = id ?? uuid.v4();
 
   final String id;
   final String title;

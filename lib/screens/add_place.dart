@@ -36,7 +36,7 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
       return;
     }
     ref
-        .read(userPlacesProvider.notifier)
+        .watch(userPlacesProvider.notifier)
         .addPlace(enteredTitle, _selectedImage!, _selectedLocation!);
     ScaffoldMessenger.of(context).showSnackBar(ifAddedSnackBar);
 

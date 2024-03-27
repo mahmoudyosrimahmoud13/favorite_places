@@ -153,6 +153,7 @@ class _LocationInputState extends State<LocationInput> {
                     longitude = selectedLocation.longitude;
                     latitude = selectedLocation.latitude;
                     map.move(selectedLocation, 15);
+                    getGeoCode(latitude!, longitude!);
                   });
                 },
                 icon: const Icon(Icons.map_rounded),
